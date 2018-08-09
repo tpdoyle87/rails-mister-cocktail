@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <h1><%= @cocktail.name %></h1>
+        <% @cocktail.doses.each do |dose| %>
+          <h3><%= dose.description %></h3>
+          <%= link_to "Delete", dose , method: :delete, data: { confirm: "ary you fucking sure"} %>
+        <% end %>
+
+      <%= link_to "Back", cocktails_path %>
+
+      <%= render './doses/form', cocktail: [@cocktail, @dose] %>
+    </div>
+  </div>
+</div>
